@@ -191,7 +191,11 @@
         <div class="container">
             <section id="execution">
                 <h2>Execution Page</h2>
-                <p>This page is dedicated to execution.</p>
+                <div class="input-container">
+                    <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+                    <button class="execute" onclick="executeCode()">Execute</button>
+                    <button class="clear" onclick="clearCode()">Clear</button>
+                </div>
             </section>
             <!-- Your content for Execution page here -->
         </div>
@@ -208,5 +212,23 @@
         </div>
     </div>
     <!-- Your JavaScript code here -->
+    <script>
+        function executeCode() {
+            // Functionality for executing code
+            showDialog();
+        }
+
+        function clearCode() {
+            document.getElementById('codeInput').value = '';
+        }
+
+        function showDialog() {
+            document.getElementById('dialogOverlay').classList.add('show');
+        }
+
+        function closeDialog() {
+            document.getElementById('dialogOverlay').classList.remove('show');
+        }
+    </script>
 </body>
 </html>
