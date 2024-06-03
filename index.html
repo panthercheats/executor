@@ -124,7 +124,7 @@
         <button class="button blue">Noclip Hack</button>
         <div class="line"></div>
         <p class="scripts">Scripts</p>
-        <button class="button blue" onclick="openModal()">Inf Yield</button>
+        <button class="button blue" onclick="copyToClipboard()">Inf Yield</button>
         <button class="button red">Blade Ball</button>
         <button class="button green">Da Hood</button>
     </div>
@@ -157,6 +157,29 @@
         function closeModal() {
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
+        }
+
+        function copyToClipboard() {
+            var textToCopy = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()';
+
+            // Create a temporary textarea element
+            var tempTextarea = document.createElement("textarea");
+            tempTextarea.value = textToCopy;
+
+            // Append the textarea to the body
+            document.body.appendChild(tempTextarea);
+
+            // Select the text in the textarea
+            tempTextarea.select();
+
+            // Copy the selected text to the clipboard
+            document.execCommand("copy");
+
+            // Remove the temporary textarea
+            document.body.removeChild(tempTextarea);
+
+            // Open the modal
+            openModal();
         }
     </script>
 </body>
