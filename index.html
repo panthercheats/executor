@@ -122,7 +122,17 @@
 
         .dialog-overlay.show {
             display: flex;
-            opacity: 1;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .dialog-box {
@@ -171,34 +181,24 @@
             <h1>PantherHub</h1>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="execution.html">Execution</a></li>
+                    <li><a href="scripthub.html">Script Hub</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
         <div class="container">
-            <section id="home">
-                <h2>Welcome to PantherHub</h2>
-                <p>Your one-stop platform for all things Panther!</p>
+            <section id="execution">
+                <h2>Execution Page</h2>
+                <p>This page is dedicated to execution.</p>
             </section>
-            <section id="about">
-                <h2>About Us</h2>
-                <p>PantherHub is dedicated to providing top-notch services and resources for panther enthusiasts and professionals.</p>
-            </section>
-            <div class="input-container">
-                <textarea id="textBox" placeholder="Type here..."></textarea>
-                <div>
-                    <button class="execute" onclick="executeFunction()">Execute</button>
-                    <button class="clear" onclick="clearText()">Clear</button>
-                </div>
-            </div>
+            <!-- Your content for Execution page here -->
         </div>
     </main>
     <footer>
         <div class="container">
-            <p>&copy; 2024 PantherHub. All rights reserved.</p>
+            <!-- No footer content -->
         </div>
     </footer>
     <div class="dialog-overlay" id="dialogOverlay">
@@ -207,23 +207,6 @@
             <button onclick="closeDialog()">Ok!</button>
         </div>
     </div>
-    <script>
-        function clearText() {
-            document.getElementById('textBox').value = '';
-        }
-
-        function executeFunction() {
-            const dialogOverlay = document.getElementById('dialogOverlay');
-            dialogOverlay.classList.add('show');
-        }
-
-        function closeDialog() {
-            const dialogOverlay = document.getElementById('dialogOverlay');
-            dialogOverlay.classList.remove('show');
-            setTimeout(() => {
-                dialogOverlay.style.display = 'none';
-            }, 500);
-        }
-    </script>
+    <!-- Your JavaScript code here -->
 </body>
 </html>
