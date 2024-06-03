@@ -31,6 +31,7 @@
 
         header h1 {
             margin: 0;
+            font-size: 2rem;
         }
 
         nav ul {
@@ -48,6 +49,11 @@
             color: white;
             text-decoration: none;
             font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f8b400;
         }
 
         main {
@@ -67,6 +73,17 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
         .input-container {
             display: flex;
             flex-direction: column;
@@ -83,6 +100,7 @@
             font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 4px;
+            resize: none;
         }
 
         .input-container button {
@@ -94,6 +112,7 @@
             border: none;
             border-radius: 4px;
             font-weight: 700;
+            transition: background-color 0.3s ease;
         }
 
         .input-container button.execute {
@@ -101,9 +120,17 @@
             color: white;
         }
 
+        .input-container button.execute:hover {
+            background-color: #218838;
+        }
+
         .input-container button.clear {
             background-color: #dc3545;
             color: white;
+        }
+
+        .input-container button.clear:hover {
+            background-color: #c82333;
         }
 
         .dialog-overlay {
@@ -159,6 +186,11 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .dialog-box button:hover {
+            background-color: #0056b3;
         }
 
         footer {
@@ -198,7 +230,6 @@
                     <button class="clear" onclick="clearCode()">Clear</button>
                 </div>
             </section>
-            <!-- Content for Execution page -->
         </div>
         <div class="container">
             <section id="scripthub">
@@ -215,32 +246,7 @@
     </main>
     <footer>
         <div class="container">
-            <!-- Footer content -->
+            <p>&copy; 2024 PantherHub. All rights reserved.</p>
         </div>
     </footer>
-    <div class="dialog-overlay" id="dialogOverlay">
-        <div class="dialog-box">
-            <p>The Executor is Currently In Development So Execute Will Not Work.</p>
-            <button onclick="closeDialog()">Ok!</button>
-        </div>
-    </div>
-    <script>
-        function executeCode() {
-            // Functionality for executing code
-            showDialog();
-        }
-
-        function clearCode() {
-            document.getElementById('codeInput').value = '';
-        }
-
-        function showDialog() {
-            document.getElementById('dialogOverlay').classList.add('show');
-        }
-
-        function closeDialog() {
-            document.getElementById('dialogOverlay').classList.remove('show');
-        }
-    </script>
-</body>
-</html>
+    <div class
