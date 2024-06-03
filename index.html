@@ -181,8 +181,8 @@
             <h1>PantherHub</h1>
             <nav>
                 <ul>
-                    <li><a href="execution.html">Execution</a></li>
-                    <li><a href="scripthub.html">Script Hub</a></li>
+                    <li><a href="#execution">Execution</a></li>
+                    <li><a href="#scripthub">Script Hub</a></li>
                 </ul>
             </nav>
         </div>
@@ -197,38 +197,12 @@
                     <button class="clear" onclick="clearCode()">Clear</button>
                 </div>
             </section>
-            <!-- Your content for Execution page here -->
+            <!-- Content for Execution page -->
         </div>
     </main>
     <footer>
         <div class="container">
-            <!-- No footer content -->
+            <!-- Footer content -->
         </div>
     </footer>
-    <div class="dialog-overlay" id="dialogOverlay">
-        <div class="dialog-box">
-            <p>The Executor is Currently In Development So Execute Will Not Work.</p>
-            <button onclick="closeDialog()">Ok!</button>
-        </div>
-    </div>
-    <!-- Your JavaScript code here -->
-    <script>
-        function executeCode() {
-            // Functionality for executing code
-            showDialog();
-        }
-
-        function clearCode() {
-            document.getElementById('codeInput').value = '';
-        }
-
-        function showDialog() {
-            document.getElementById('dialogOverlay').classList.add('show');
-        }
-
-        function closeDialog() {
-            document.getElementById('dialogOverlay').classList.remove('show');
-        }
-    </script>
-</body>
-</html>
+    <div class="dialog-overlay" id="dialog
