@@ -3,26 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PantherHub</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>PantherHub - Execution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .input-box {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .button.clear {
+            background-color: #dc3545;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+        .line {
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+        .mods {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>PantherHub</h1>
-            <nav>
-                <ul>
-                    <li><a href="execution.html">Execution</a></li>
-                    <li><a href="scripthub.html">Script Hub</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 PantherHub. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="container">
+        <h1>Execution</h1>
+        <textarea class="input-box" id="input-box" rows="4" placeholder="Enter your execution strategy here..."></textarea>
+        <button class="button" onclick="execute()">Execute</button>
+        <button class="button clear" onclick="clearText()">Clear</button>
+        <div class="line"></div>
+        <p class="mods">Mods</p>
+        <button class="button">Speed Hack</button>
+        <button class="button">Noclip Hack</button>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 PantherHub. All rights reserved.</p>
+    </div>
+
+    <script>
+        function execute() {
+            // Logic for execution
+            alert("Executing: " + document.getElementById("input-box").value);
+        }
+
+        function clearText() {
+            document.getElementById("input-box").value = "";
+        }
+    </script>
 </body>
 </html>
