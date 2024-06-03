@@ -140,8 +140,10 @@
 
     <script>
         function execute() {
-            // Logic for execution
-            alert("Executing: " + document.getElementById("input-box").value);
+            const script = 'print("hello")';
+            // Logic to send the script to Roblox
+            console.log("Executing script: " + script);
+            alert("Executing script: " + script);
         }
 
         function clearText() {
