@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333; /* Changed to dark gray */
+            background-color: #333; /* Dark gray background */
         }
         .container {
             max-width: 800px;
@@ -26,10 +26,6 @@
         h2 {
             color: #333;
             text-align: center;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
         }
         .input-box {
             width: 100%;
@@ -51,25 +47,12 @@
             background-color: #007bff;
             color: #fff;
         }
-        .button.red {
-            background-color: #dc3545;
-            color: #fff;
-        }
-        .button.green {
-            background-color: #28a745;
-            color: #fff;
-        }
         .button:hover {
             opacity: 0.8;
         }
         .line {
             border-top: 1px solid #ccc;
             margin: 20px 0;
-        }
-        .mods, .scripts {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
         }
         /* Modal Styling */
         .modal {
@@ -115,18 +98,9 @@
     <div class="container">
         <h1>PantherHub</h1>
         <h2>Execution</h2>
-        <textarea class="input-box" id="input-box" rows="4" placeholder="Enter your execution strategy here..."></textarea>
-        <button class="button blue" onclick="execute()">Execute</button>
-        <button class="button red clear" onclick="clearText()">Clear</button>
-        <div class="line"></div>
-        <p class="mods">Mods</p>
-        <button class="button blue">Speed Hack</button>
-        <button class="button blue">Noclip Hack</button>
-        <div class="line"></div>
-        <p class="scripts">Scripts</p>
-        <button class="button blue" onclick="copyToClipboard()">Inf Yield</button>
-        <button class="button red">Blade Ball</button>
-        <button class="button green">Da Hood</button>
+        <textarea class="input-box" id="input-box" rows="4" placeholder="Enter your script here..."></textarea>
+        <button class="button blue" onclick="executeScript()">Execute</button>
+        <button class="button blue" onclick="clearText()">Clear</button>
     </div>
 
     <!-- The Modal -->
@@ -139,11 +113,23 @@
     </div>
 
     <script>
-        function execute() {
-            const script = 'print("hello")';
-            // Logic to send the script to Roblox
-            console.log("Executing script: " + script);
-            alert("Executing script: " + script);
+        function executeScript() {
+            const script = document.getElementById("input-box").value;
+            fetch('http://localhost:3000/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ script: script }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("Script sent to backend: " + script);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         }
 
         function clearText() {
