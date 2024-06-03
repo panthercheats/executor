@@ -194,4 +194,53 @@
                 <h2>Execution Page</h2>
                 <div class="input-container">
                     <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
-                    <button class="execute" onclick="
+                    <button class="execute" onclick="executeCode()">Execute</button>
+                    <button class="clear" onclick="clearCode()">Clear</button>
+                </div>
+            </section>
+            <!-- Content for Execution page -->
+        </div>
+        <div class="container">
+            <section id="scripthub">
+                <h2>Script Hub Page</h2>
+                <p>Content for Script Hub page goes here.</p>
+            </section>
+        </div>
+        <div class="container">
+            <section id="about">
+                <h2>About Us</h2>
+                <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <!-- Footer content -->
+        </div>
+    </footer>
+    <div class="dialog-overlay" id="dialogOverlay">
+        <div class="dialog-box">
+            <p>The Executor is Currently In Development So Execute Will Not Work.</p>
+            <button onclick="closeDialog()">Ok!</button>
+        </div>
+    </div>
+    <script>
+        function executeCode() {
+            // Functionality for executing code
+            showDialog();
+        }
+
+        function clearCode() {
+            document.getElementById('codeInput').value = '';
+        }
+
+        function showDialog() {
+            document.getElementById('dialogOverlay').classList.add('show');
+        }
+
+        function closeDialog() {
+            document.getElementById('dialogOverlay').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
