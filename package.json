@@ -1,0 +1,15 @@
+{
+  "name": "PantherHub",
+  "version": "1.0.0",
+  "description": "A simple script execution interface",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
