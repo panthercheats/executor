@@ -10,6 +10,13 @@
             margin: 0;
             padding: 0;
             background-color: #333; /* Dark gray background */
+            overflow: hidden; /* Prevents scrollbars from showing */
+        }
+        .draggable-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: move;
         }
         .container {
             max-width: 800px;
@@ -18,6 +25,9 @@
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            top: 0;
+            left: 0;
         }
         h1 {
             color: #333;
@@ -95,20 +105,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>PantherHub</h1>
-        <h2>Execution</h2>
-        <textarea class="input-box" id="input-box" rows="4" placeholder="Enter your script here..."></textarea>
-        <button class="button blue" onclick="executeScript()">Execute</button>
-        <button class="button blue" onclick="clearText()">Clear</button>
-    </div>
+    <div class="draggable-container" id="draggable-container">
+        <div class="container">
+            <h1>PantherHub</h1>
+            <h2>Execution</h2>
+            <textarea class="input-box" id="input-box" rows="4" placeholder="Enter your script here..."></textarea>
+            <button class="button blue" onclick="executeScript()">Execute</button>
+            <button class="button blue" onclick="clearText()">Clear</button>
+        </div>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Copied Script To Clipboard! <span style="color: green;">&#10004;</span></p>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>Copied Script To Clipboard! <span style="color: green;">&#10004;</span></p>
+            </div>
         </div>
     </div>
 
@@ -169,6 +181,27 @@
             // Open the modal
             openModal();
         }
+
+        // Drag functionality
+        var draggableContainer = document.getElementById('draggable-container');
+        var offsetX, offsetY, isDragging = false;
+
+        draggableContainer.addEventListener('mousedown', function(e) {
+            offsetX = e.clientX - draggableContainer.getBoundingClientRect().left;
+            offsetY = e.clientY - draggableContainer.getBoundingClientRect().top;
+            isDragging = true;
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                draggableContainer.style.left = (e.clientX - offsetX) + 'px';
+                draggableContainer.style.top = (e.clientY - offsetY) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+        });
     </script>
 </body>
 </html>
