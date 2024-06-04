@@ -10,10 +10,10 @@ app.post('/execute', (req, res) => {
     const { script } = req.body;
     console.log('Received script:', script);
 
-    // Here you would send the script to Roblox using a secure method
-    // For example, using HTTPService within Roblox or another method
+    // For demonstration, we'll just log the script to the console
+    // In a real-world application, you would handle the script execution logic here
 
-    res.json({ status: 'success', message: 'Script received by the backend' });
+    res.json({ status: 'success', message: 'Script received by the backend', script: script });
 });
 
 app.listen(port, () => {
